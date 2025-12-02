@@ -1,17 +1,3 @@
-Baik, ini adalah kode CSS Bagian Atas yang sudah saya perbaiki.
-
-Kode ini sudah mencakup:
-
-Fix Scroll Samping: Menambahkan overflow-x: hidden di html, body.
-
-Menu Garis 3 (Hamburger): Sudah ada pengaturan .menu-toggle dan animasi dropdown untuk HP.
-
-Silakan HAPUS kode CSS bagian atas lama Anda (dari baris paling awal sampai .btn-nav:hover), lalu TEMPELKAN (Paste) kode di bawah ini sebagai gantinya.
-
-Catatan: Pastikan kode CSS bagian bawah Anda (mulai dari Hero, Features, Products, Testimoni, Footer) TETAP ADA di bawah kode ini.
-
-CSS
-
 /* =========================================
    1. RESET & VARIABEL UTAMA
    ========================================= */
