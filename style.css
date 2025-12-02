@@ -288,3 +288,67 @@ footer {
         font-size: 1.8rem;
     }
 }
+
+/* --- Tambahan Khusus Section Hotel --- */
+
+/* Grid khusus Hotel: Di HP langsung bagi 2 kolom, di Laptop bagi 4 */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Paksa 2 kolom di HP */
+    gap: 10px; /* Jarak antar kartu lebih rapat */
+    margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+    .hotel-grid {
+        grid-template-columns: repeat(4, 1fr); /* Di Laptop jadi 4 berjejer */
+        gap: 30px;
+    }
+}
+
+/* Penyesuaian Tampilan Kartu Hotel agar rapi di layar kecil */
+.hotel-card img {
+    height: 120px; /* Gambar lebih pendek biar hemat tempat */
+    width: 100%;
+    object-fit: cover;
+}
+
+.hotel-card .card-content {
+    padding: 10px; /* Padding lebih kecil */
+}
+
+.hotel-card h3 {
+    font-size: 0.9rem; /* Judul lebih kecil */
+    margin: 5px 0;
+}
+
+.hotel-card p {
+    font-size: 0.7rem; /* Deskripsi kecil */
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Batasi deskripsi cuma 2 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hotel-card .price {
+    font-size: 0.9rem;
+    margin: 8px 0;
+}
+
+.hotel-card .btn-card {
+    font-size: 0.8rem;
+    padding: 8px;
+}
+
+.hotel-card ul {
+    display: none; /* Sembunyikan detail list di HP biar gak penuh */
+}
+
+/* Tampilkan list detail cuma di layar besar (Laptop) */
+@media (min-width: 768px) {
+    .hotel-card ul { display: block; }
+    .hotel-card h3 { font-size: 1.1rem; }
+    .hotel-card p { font-size: 0.9rem; -webkit-line-clamp: unset; }
+    .hotel-card img { height: 180px; }
+}
