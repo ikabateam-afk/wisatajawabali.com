@@ -1,3 +1,17 @@
+Baik, ini adalah kode CSS Bagian Atas yang sudah saya perbaiki.
+
+Kode ini sudah mencakup:
+
+Fix Scroll Samping: Menambahkan overflow-x: hidden di html, body.
+
+Menu Garis 3 (Hamburger): Sudah ada pengaturan .menu-toggle dan animasi dropdown untuk HP.
+
+Silakan HAPUS kode CSS bagian atas lama Anda (dari baris paling awal sampai .btn-nav:hover), lalu TEMPELKAN (Paste) kode di bawah ini sebagai gantinya.
+
+Catatan: Pastikan kode CSS bagian bawah Anda (mulai dari Hero, Features, Products, Testimoni, Footer) TETAP ADA di bawah kode ini.
+
+CSS
+
 /* =========================================
    1. RESET & VARIABEL UTAMA
    ========================================= */
@@ -15,11 +29,15 @@
     --dark: #2d3436;        /* Hitam Abu */
     --light: #f7f7f7;       /* Abu Terang */
     --white: #ffffff;
-    --gradient-btn: linear-gradient(45deg, #2d3436, #636e72); /* Gradasi Tombol Umum */
-    --gradient-hotel: linear-gradient(45deg, #00b894, #00cec9); /* Gradasi Tombol Hotel (Hijau Segar) */
+    --gradient-btn: linear-gradient(45deg, #2d3436, #636e72); 
+    --gradient-hotel: linear-gradient(45deg, #00b894, #00cec9); 
 }
 
-body {
+/* FIX UTAMA: Mencegah geser kanan di HP & Scroll Bar Horizontal */
+html, body {
+    overflow-x: hidden; /* Wajib ada */
+    width: 100%;
+    position: relative;
     color: var(--dark);
     line-height: 1.6;
     background-color: var(--light);
@@ -32,7 +50,7 @@ body {
 }
 
 /* =========================================
-   2. NAVBAR
+   2. NAVBAR & MENU HP (SUDAH DIPERBAIKI)
    ========================================= */
 .navbar {
     background: var(--white);
@@ -47,22 +65,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* Penting untuk posisi menu HP */
 }
 
 .logo {
     font-size: 1.5rem;
     color: var(--dark);
     font-weight: 800;
+    z-index: 1002; /* Agar logo tetap di atas menu saat dibuka */
 }
 
 .logo span {
     color: var(--primary);
 }
 
+/* Style Link Desktop (Normal) */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center;
 }
 
 .nav-links a {
@@ -89,6 +111,63 @@ body {
 .btn-nav:hover {
     background: #ff4757;
     transform: translateY(-2px);
+}
+
+/* --- TOMBOL HAMBURGER (GARIS 3) --- */
+.menu-toggle {
+    display: none; /* Sembunyi di Laptop */
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--dark);
+}
+
+/* --- LOGIKA RESPONSIF KHUSUS NAVBAR HP --- */
+@media (max-width: 768px) {
+    /* Mencegah logo terlalu besar di HP */
+    .logo {
+        font-size: 1.1rem;
+        max-width: 70%;
+    }
+
+    /* Munculkan Tombol Garis 3 */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Menu Dropdown (Posisi Awal Sembunyi di Kiri) */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Sembunyi di luar layar kiri */
+        width: 100%;
+        background: var(--white);
+        flex-direction: column; /* Susun ke bawah */
+        padding: 30px 0;
+        text-align: center;
+        transition: 0.4s ease; /* Efek geser halus */
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        gap: 25px;
+    }
+
+    /* Class Aktif (Saat tombol diklik, menu masuk) */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Efek Animasi Tombol Jadi 'X' */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
+    .btn-nav { margin-top: 10px; display: inline-block; }
 }
 
 /* =========================================
