@@ -114,6 +114,21 @@ html, body {
     transition: all 0.3s ease-in-out;
     background-color: var(--dark);
 }
+/* --- PENGATURAN UKURAN LOGO --- */
+.logo-img {
+    height: 45px !important; /* Paksa tinggi 45px */
+    width: auto;             /* Lebar menyesuaikan (jadi kotak) */
+    max-width: 100%;         /* Jaga-jaga agar tidak lewat batas */
+    border-radius: 8px;      /* Pemanis sudut */
+    object-fit: contain;     /* Agar gambar tidak gepeng */
+}
+
+/* --- UKURAN KHUSUS HP (LEBIH KECIL) --- */
+@media (max-width: 768px) {
+    .logo-img { 
+        height: 35px !important; /* Di HP dikecilkan jadi 35px */
+    }
+}
 
 /* --- LOGIKA RESPONSIF KHUSUS NAVBAR HP --- */
 @media (max-width: 768px) {
