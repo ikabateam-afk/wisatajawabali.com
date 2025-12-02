@@ -36,11 +36,11 @@ html, body {
 }
 
 /* =========================================
-   2. NAVBAR (UPDATE: LEBIH RAMPING & SEJAJAR)
+   2. NAVBAR (FINAL: LOGO RAPI + MENU HP JALAN)
    ========================================= */
 .navbar {
     background: var(--white);
-    padding: 0.8rem 0; /* Padding dikurangi biar gak ketebelan */
+    padding: 0.8rem 0; /* Ramping & Rapi */
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
@@ -51,47 +51,45 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: relative; /* Penting untuk menu HP */
 }
 
-/* --- LOGO WRAPPER (Wadah Logo + Teks) --- */
+/* --- LOGO & TEKS (SEJAJAR) --- */
 .logo-wrapper {
-    display: flex;       /* KUNCI: Agar gambar & teks sebaris */
-    align-items: center; /* KUNCI: Agar rata tengah secara vertikal */
-    gap: 10px;           /* Jarak antara gambar dan tulisan */
+    display: flex;       /* Agar gambar & teks sebaris */
+    align-items: center; /* Rata tengah vertikal */
+    gap: 10px;           /* Jarak gambar ke teks */
     text-decoration: none;
-    z-index: 1002;
+    z-index: 1002;       /* Agar tetap di atas menu saat dibuka */
 }
 
-/* Gambar Logo */
 .logo-img {
-    height: 40px !important; /* Ukuran pas, tidak kegedean */
+    height: 40px !important; /* Ukuran Logo Pas */
     width: auto;
     border-radius: 6px;
-    display: block; /* Mencegah ada sela kosong di bawah gambar */
+    display: block;
 }
 
-/* Tulisan Logo */
 .logo-text {
-    font-size: 1rem;       /* Ukuran huruf pas */
-    font-weight: 800;      /* Tebal */
+    font-size: 1rem;
+    font-weight: 800;
     color: var(--dark);
-    line-height: 1.2;      /* Jarak antar baris teks dirapatkan */
+    line-height: 1.2;
     text-align: left;
-    margin: 0;             /* Hapus margin bawaan biar gak tinggi */
+    margin: 0;
 }
 
 .logo-text span {
     color: var(--primary);
 }
 
-/* --- MENU LINKS --- */
+/* --- MENU LINKS (DESKTOP) --- */
 .nav-links {
     list-style: none;
     display: flex;
     gap: 20px;
     align-items: center;
-    margin: 0; /* Pastikan tidak ada margin */
+    margin: 0;
 }
 
 .nav-links a {
@@ -106,17 +104,74 @@ html, body {
     color: var(--primary);
 }
 
-/* --- RESPONSIF HP --- */
-@media (max-width: 768px) {
-    /* Di HP logo lebih kecil lagi biar muat */
-    .logo-img { height: 32px !important; }
-    .logo-text { font-size: 0.85rem; } 
-    
-    .nav-links {
-        padding-top: 80px; /* Jarak menu dropdown */
-    }
+.btn-nav {
+    background: var(--primary);
+    color: var(--white) !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
 }
 
+.btn-nav:hover {
+    background: #ff4757;
+    transform: translateY(-2px);
+}
+
+/* --- TOMBOL HAMBURGER (GARIS 3) --- */
+.menu-toggle {
+    display: none; /* Sembunyi di Laptop */
+    cursor: pointer;
+    z-index: 1002;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: var(--dark);
+}
+
+/* --- RESPONSIF KHUSUS HP --- */
+@media (max-width: 768px) {
+    /* Logo lebih kecil di HP */
+    .logo-img { height: 32px !important; }
+    .logo-text { font-size: 0.85rem; }
+
+    /* Munculkan Tombol Menu */
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Pengaturan Menu Dropdown */
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%; /* Sembunyi di kiri */
+        width: 100%;
+        background: var(--white);
+        flex-direction: column; /* Susun ke bawah */
+        padding: 30px 0;
+        text-align: center;
+        transition: 0.4s ease;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        gap: 25px;
+    }
+
+    /* Menu Masuk saat Aktif */
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Animasi Tombol X */
+    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
+    .btn-nav { display: inline-block; margin-top: 10px; }
+}
 /* =========================================
    3. HERO SECTION
    ========================================= */
