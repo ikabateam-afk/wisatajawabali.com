@@ -15,18 +15,24 @@
 <body>
 
     <nav class="navbar">
-    <div class="container">
-        <h1 class="logo" style="font-size: 1.2rem;">PT. Inovasi Karya <span>Bahagia</span></h1>
-        
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#destinasi">Paket Wisata</a></li>
-            <li><a href="#hotel">Voucher Hotel</a></li>
-            <li><a href="#testimoni">Testimoni</a></li>
-            <li><a href="#kontak" class="btn-nav">Kontak Kami</a></li>
-        </ul>
-    </div>
-</nav>
+        <div class="container">
+            <h1 class="logo" style="font-size: 1.2rem;">PT. Inovasi Karya <span>Bahagia</span></h1>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#destinasi">Paket Wisata</a></li>
+                <li><a href="#hotel">Voucher Hotel</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+                <li><a href="#kontak" class="btn-nav">Kontak Kami</a></li>
+            </ul>
+        </div>
+    </nav>
 
     <header id="home" class="hero">
         <div class="hero-overlay"></div>
@@ -311,6 +317,25 @@
         </div>
     </div>
 </footer>
+    
+        <script>
+        const menuToggle = document.querySelector('#mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('is-active');
+            navLinks.classList.toggle('active');
+        });
+        
+        // Agar menu tertutup otomatis saat link diklik
+        const navItems = document.querySelectorAll('.nav-links li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                menuToggle.classList.remove('is-active');
+                navLinks.classList.remove('active');
+            });
+        });
+    </script>
 
 </body>
 </html>
