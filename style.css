@@ -588,12 +588,15 @@ footer {
 }
 
 /* =========================================
-   SECTION VIDEO GALERI
+   SECTION VIDEO GALERI (MODIFIKASI TIKTOK STYLE)
    ========================================= */
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Kita batasi minmax nya lebih kecil biar di HP muat 2 kolom kalo mau */
+    /* Tapi biar aman di 1 kolom dulu untuk HP */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    justify-content: center;
 }
 
 .video-card {
@@ -602,6 +605,9 @@ footer {
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: 0.3s;
+    /* Opsional: Batasi lebar maksimum kartu agar tidak terlalu raksasa di layar lebar */
+    max-width: 350px; 
+    margin: 0 auto; /* Tengahin kartu kalau dia sendirian */
 }
 
 .video-card:hover {
@@ -609,27 +615,26 @@ footer {
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* Trik agar video YouTube Responsif (16:9) */
+/* --- UPDATE PENTING: RASIO VIDEO TEGAK --- */
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Rasio 16:9 */
-    height: 0;
-    overflow: hidden;
-    background: #000;
+    width: 100%;
+    /* INI KUNCINYA: Mengubah rasio jadi tegak (9 lebar : 16 tinggi) */
+    aspect-ratio: 9 / 16; 
+    background: #000; /* Latar belakang hitam jika video loading */
 }
 
-.video-wrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.video-wrapper video { 
     width: 100%;
     height: 100%;
-    border: 0;
+    /* Agar video mengisi penuh bingkai tanpa gepeng (mungkin sedikit terpotong pinggirnya) */
+    object-fit: cover; 
+    display: block;
 }
 
 .video-info {
     padding: 20px;
-    text-align: left;
+    text-align: center; /* Teks jadi rata tengah biar rapi sama videonya */
 }
 
 .video-info h3 {
