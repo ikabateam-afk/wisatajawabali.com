@@ -258,69 +258,53 @@
                 Harga agen, pasti lebih murah dari aplikasi!
             </p>
             
-            <div class="hotel-grid">
-                
-                <div class="card hotel-card">
-                    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=400&q=80" alt="POP Hotel">
-                    <div class="card-content">
-                        <span class="tag" style="background: #1b5e20; color: white;">Budget</span>
-                        <h3>POP! Hotels</h3>
-                        <p>Hotel *budjet* ramah lingkungan & trendi.</p>
-                        <ul style="list-style: none; font-size: 0.8rem; color: #666;">
-                            <li>✅ Cocok buat Backpacker</li>
-                            <li>✅ Free Quick Breakfast</li>
-                        </ul>
-                        <div class="price">Mulai Rp 250rb</div>
-                        <a href="https://wa.me/628170507531?text=Order%20Voucher%20POP" class="btn-card">Pesan POP</a>
-                    </div>
-                </div>
+            <div class="grid-hotel">
+    
+    <div class="card hotel-card" onclick="openHotel('pop')" style="cursor: pointer;">
+        <span class="tag" style="background: #1b5e20; color: white;">Budget</span>
+        <img src="images/pop-1.webp" alt="POP! Hotel" width="300" height="200" loading="lazy">
+        <div class="info">
+            <div class="price">Mulai Rp 250rb</div>
+            <h3>POP! Hotels</h3>
+            <p>Hotel *budjet* ramah lingkungan & trendi.</p>
+            <p style="font-size: 0.8rem; color: blue;">(Klik untuk lihat foto kamar)</p>
+        </div>
+    </div>
 
-                <div class="card hotel-card">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=400&q=80" alt="Fave Hotel">
-                    <div class="card-content">
-                        <span class="tag" style="background: #880e4f; color: white;">Best Seller</span>
-                        <h3>Fave Hotel</h3>
-                        <p>Fun, fresh, & friendly. Favorit keluarga.</p>
-                        <ul style="list-style: none; font-size: 0.8rem; color: #666;">
-                            <li>✅ Termasuk Breakfast</li>
-                            <li>✅ Desain Warna-warni</li>
-                        </ul>
-                        <div class="price">Mulai Rp 350rb</div>
-                        <a href="https://wa.me/628170507531?text=Order%20Voucher%20Fave" class="btn-card">Pesan Fave</a>
-                    </div>
-                </div>
+    <div class="card hotel-card" onclick="openHotel('fave')" style="cursor: pointer;">
+        <span class="tag" style="background: #880e4f; color: white;">Best Seller</span>
+        <img src="images/fave-1.webp" alt="Fave Hotel" width="300" height="200" loading="lazy">
+        <div class="info">
+            <div class="price">Mulai Rp 350rb</div>
+            <h3>Fave Hotel</h3>
+            <p>Fun, fresh, & friendly. Favorit keluarga.</p>
+            <p style="font-size: 0.8rem; color: blue;">(Klik untuk lihat foto kamar)</p>
+        </div>
+    </div>
 
-                <div class="card hotel-card">
-                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=400&q=80" alt="Neo Hotel">
-                    <div class="card-content">
-                        <span class="tag" style="background: #333; color: white;">Stylish</span>
-                        <h3>Hotel NEO</h3>
-                        <p>Gaya unik kontemporer & non-smoking.</p>
-                        <ul style="list-style: none; font-size: 0.8rem; color: #666;">
-                            <li>✅ Desain Estetik</li>
-                            <li>✅ Standar Internasional</li>
-                        </ul>
-                        <div class="price">Mulai Rp 380rb</div>
-                        <a href="https://wa.me/628170507531?text=Order%20Voucher%20NEO" class="btn-card">Pesan NEO</a>
-                    </div>
-                </div>
+    <div class="card hotel-card" onclick="openHotel('neo')" style="cursor: pointer;">
+        <span class="tag" style="background: #000000; color: white;">Stylish</span>
+        <img src="images/neo-1.webp" alt="Hotel NEO" width="300" height="200" loading="lazy">
+        <div class="info">
+            <div class="price">Mulai Rp 380rb</div>
+            <h3>Hotel NEO</h3>
+            <p>Gaya unik kontemporer & non-smoking.</p>
+            <p style="font-size: 0.8rem; color: blue;">(Klik untuk lihat foto kamar)</p>
+        </div>
+    </div>
 
-                <div class="card hotel-card">
-                    <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=400&q=80" alt="Harris Hotel">
-                    <div class="card-content">
-                        <span class="tag" style="background: #b71c1c; color: white;">Premium</span>
-                        <h3>Harris Hotel</h3>
-                        <p>Fasilitas lengkap dengan nuansa oranye.</p>
-                        <ul style="list-style: none; font-size: 0.8rem; color: #666;">
-                            <li>✅ Gym & Pool Lengkap</li>
-                            <li>✅ Healthy Lifestyle</li>
-                        </ul>
-                        <div class="price">Mulai Rp 450rb</div>
-                        <a href="https://wa.me/628170507531?text=Order%20Voucher%20Harris" class="btn-card">Pesan Harris</a>
-                    </div>
-                </div>
+    <div class="card hotel-card" onclick="openHotel('harris')" style="cursor: pointer;">
+        <span class="tag" style="background: #b71c1c; color: white;">Premium</span>
+        <img src="images/harris-1.webp" alt="Harris Hotel" width="300" height="200" loading="lazy">
+        <div class="info">
+            <div class="price">Mulai Rp 450rb</div>
+            <h3>Harris Hotel</h3>
+            <p>Fasilitas lengkap dengan nuansa oranye.</p>
+            <p style="font-size: 0.8rem; color: blue;">(Klik untuk lihat foto kamar)</p>
+        </div>
+    </div>
 
-            </div>
+</div>
         </div>
     </section>
     
@@ -598,11 +582,98 @@
     function updateCounter() {
         document.getElementById('currentImgNum').innerText = currentIndex;
     }
+
+    <script>
+    // DATA GAMBAR HOTEL
+    // Pastikan kamu punya file gambar dengan nama ini di folder images!
+    const hotelData = {
+        'pop': [
+            'images/pop-1.webp', // Gambar Utama
+            'images/pop-2.webp', // Interior 1
+            'images/pop-3.webp'  // Kamar Mandi / Lobby
+        ],
+        'fave': [
+            'images/fave-1.webp',
+            'images/fave-2.webp',
+            'images/fave-3.webp'
+        ],
+        'neo': [
+            'images/neo-1.webp',
+            'images/neo-2.webp',
+            'images/neo-3.webp'
+        ],
+        'harris': [
+            'images/harris-1.webp',
+            'images/harris-2.webp',
+            'images/harris-3.webp'
+        ]
+    };
+
+    let currentHotel = [];
+    let currentIndex = 0;
+
+    // Fungsi Buka Modal
+    function openHotel(hotelName) {
+        currentHotel = hotelData[hotelName]; // Ambil daftar gambar sesuai hotel yg diklik
+        currentIndex = 0; // Mulai dari gambar pertama
+        
+        // Tampilkan Modal
+        document.getElementById('hotelModal').style.display = 'flex';
+        updateImage();
+    }
+
+    // Fungsi Tutup Modal
+    function closeModal() {
+        document.getElementById('hotelModal').style.display = 'none';
+    }
+
+    // Fungsi Ganti Gambar (Next/Prev)
+    function changeSlide(direction) {
+        currentIndex += direction;
+        
+        // Logic Loop (Kalau habis balik ke awal)
+        if (currentIndex >= currentHotel.length) {
+            currentIndex = 0;
+        } else if (currentIndex < 0) {
+            currentIndex = currentHotel.length - 1;
+        }
+        
+        updateImage();
+    }
+
+    // Update Tampilan Gambar
+    function updateImage() {
+        const imgElement = document.getElementById('modalImage');
+        const counterElement = document.getElementById('imageCounter');
+        
+        imgElement.src = currentHotel[currentIndex];
+        counterElement.innerText = `Foto ${currentIndex + 1} dari ${currentHotel.length}`;
+    }
+
+    // Tutup jika klik di luar gambar
+    window.onclick = function(event) {
+        const modal = document.getElementById('hotelModal');
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
 </script>
     
     <a href="https://wa.me/628170507531?text=Halo%20Admin,%20saya%20butuh%20bantuan..." class="floating-wa-button" target="_blank">
             <i class="fab fa-whatsapp"></i> Chat Admin
     </a>
+
+            <div id="hotelModal" class="modal">
+    <span class="close-modal" onclick="closeModal()">&times;</span>
     
+    <div class="modal-content">
+        <img id="modalImage" src="" alt="Galeri Hotel">
+        
+        <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
+        <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
+        
+        <div id="imageCounter" style="color: white; margin-top: 10px; font-weight: bold;"></div>
+    </div>
+</div>
 </body>
 </html>
