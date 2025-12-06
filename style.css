@@ -10,7 +10,7 @@
 }
 
 :root {
-    --primary: #ff6b6b;     /* Merah Salem (Dipakai untuk tombol/hover) */
+    --primary: #ff6b6b;     /* Merah Salem */
     --secondary: #4ecdc4;   /* Tosca */
     --dark: #2d3436;        /* Hitam Abu */
     --light: #f7f7f7;       /* Abu Terang */
@@ -18,7 +18,7 @@
     --gradient-btn: linear-gradient(45deg, #2d3436, #636e72); 
     --gradient-hotel: linear-gradient(45deg, #00b894, #00cec9); 
     
-    /* TAMBAHAN: Warna Merah Gelap Khusus Teks (Agar Lolos Contrast SEO) */
+    /* Warna Merah Gelap Khusus Teks (Agar Lolos Contrast SEO) */
     --text-contrast: #c62828; 
 }
 
@@ -64,11 +64,13 @@ html, body {
     z-index: 1002;
 }
 
+/* UPDATE: Logo Desktop Lebih Kecil */
 .logo-img {
-    height: 40px !important;
+    height: 36px !important; /* Diubah dari 40px jadi 36px */
     width: auto;
     border-radius: 6px;
     display: block;
+    object-fit: contain; /* Tambahan agar gambar tidak gepeng */
 }
 
 .logo-text {
@@ -80,7 +82,7 @@ html, body {
     margin: 0;
 }
 
-/* PERBAIKAN: Gunakan warna gelap agar Lulus Contrast di Desktop juga */
+/* Gunakan warna gelap agar Lulus Contrast */
 .logo-text span { 
     color: var(--text-contrast); 
 }
@@ -249,7 +251,6 @@ html, body {
 /* Grid Dasar (Desktop) */
 .product-grid, .grid-hotel {
     display: grid;
-    /* Desktop default: menyesuaikan konten */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
 }
@@ -495,15 +496,16 @@ footer {
     /* 1. PERBAIKAN CONTAINER (Agar Logo Tidak Mepet/Kepotong) */
     .navbar .container {
         width: 100%;
-        padding: 0 20px; /* Jarak aman kiri-kanan */
+        padding: 0 20px;
     }
 
-    /* 2. LOGO KECIL & RAPI */
+    /* 2. LOGO HP JADI KECIL & RAPI */
     .logo-wrapper { gap: 10px; }
     
+    /* UPDATE: Logo HP diperkecil ke 32px */
     .logo-img { 
-        height: 40px !important; 
-        width: 40px !important; 
+        height: 32px !important; /* Diubah dari 40px jadi 32px */
+        width: 32px !important;  /* Paksa kotak kecil */
         object-fit: contain; 
     }
 
@@ -517,7 +519,7 @@ footer {
     
     .logo-text span {
         font-size: 0.75rem;
-        color: var(--text-contrast) !important; /* Pakai variabel merah gelap */
+        color: var(--text-contrast) !important;
     }
 
     /* 3. TOMBOL BURGER (Tampil) */
@@ -528,77 +530,39 @@ footer {
     /* 4. NAV LINKS (MODEL DROPDOWN) */
     .nav-links {
         position: absolute;
-        top: 100%;       /* Muncul tepat di bawah navbar */
-        left: 0;
-        width: 100%;     /* Lebar penuh */
+        top: 100%; left: 0; width: 100%;
         background: var(--white);
-        
-        flex-direction: column;
-        align-items: center; /* Teks rata tengah */
-        padding: 20px 0;
-        gap: 20px;
-        
-        box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Bayangan halus */
-        border-top: 1px solid #eee; /* Garis pemisah tipis */
-        
-        /* SEMBUNYIKAN MENU SECARA DEFAULT */
-        display: none; 
-        opacity: 0;
-        transform: translateY(-10px); 
-        transition: all 0.3s ease;
+        flex-direction: column; align-items: center; padding: 20px 0; gap: 20px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-top: 1px solid #eee;
+        display: none; opacity: 0; transform: translateY(-10px); transition: all 0.3s ease;
     }
 
-    /* KELAS ACTIVE (SAAT MENU DIBUKA) */
     .nav-links.active {
-        display: flex;  /* Ubah jadi Flexbox */
-        opacity: 1;
-        transform: translateY(0); 
+        display: flex; opacity: 1; transform: translateY(0); 
         animation: slideDown 0.3s ease forwards; 
     }
 
-    /* Animasi Halus Dropdown */
     @keyframes slideDown {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Style Link di dalam Dropdown */
     .nav-links a {
-        font-size: 1rem;
-        width: 100%;
-        text-align: center;
-        display: block;
-        padding: 10px 0;
+        font-size: 1rem; width: 100%; text-align: center; display: block; padding: 10px 0;
     }
-
-    .nav-links a:hover {
-        background-color: #f9f9f9; 
-        color: var(--primary);
-    }
-    
-    /* Tombol CTA di dalam menu */
-    .btn-nav {
-        display: inline-block;
-        margin-top: 10px;
-        width: 80%; 
-        text-align: center;
-    }
+    .nav-links a:hover { background-color: #f9f9f9; color: var(--primary); }
+    .btn-nav { display: inline-block; margin-top: 10px; width: 80%; text-align: center; }
 
     /* 5. GRID SYSTEM MOBILE (2 KOLOM) */
     .product-grid, .grid-hotel {
         display: grid;
         grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px;
-        padding: 0 10px; 
+        gap: 10px; padding: 0 10px; 
     }
 
     .card img, .hotel-card img { height: 120px; }
     .card-content, .hotel-card .info { padding: 10px; }
-    
-    .card h3, .hotel-card h3 {
-        font-size: 0.85rem; margin: 5px 0; line-height: 1.3;
-    }
-    
+    .card h3, .hotel-card h3 { font-size: 0.85rem; margin: 5px 0; line-height: 1.3; }
     .price { font-size: 0.8rem; margin: 5px 0; }
     .tag { font-size: 0.6rem; padding: 3px 6px; }
     .btn-card { font-size: 0.8rem; padding: 8px 0; }
@@ -615,8 +579,7 @@ footer {
     .map-wrapper iframe { height: 250px; }
     
     /* Modal di Mobile */
-    .prev { left: -10px; } 
-    .next { right: -10px; } 
+    .prev { left: -10px; } .next { right: -10px; } 
     .close-modal { top: 10px; right: 20px; font-size: 30px; }
     .floating-wa-button { bottom: 20px; right: 20px; padding: 10px 20px; font-size: 0.9rem; }
 }
