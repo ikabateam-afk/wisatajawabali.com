@@ -886,3 +886,17 @@ footer {
         font-size: 0.9rem;
     }
 }
+
+/* Reset style khusus untuk tombol slider agar tidak terlihat seperti tombol kaku */
+button.prev-btn, 
+button.next-btn {
+    background: none;      /* Hilangkan background abu-abu */
+    border: none;          /* Hilangkan garis tepi */
+    cursor: pointer;       /* Agar kursor berubah jadi jari telunjuk saat di-hover */
+    padding: 0;            /* Hilangkan padding bawaan */
+    font-family: inherit;  /* Ikuti font website */
+    
+    /* Pastikan properti warna/ukuran font lama tetap terbaca */
+    /* Biasanya class .prev-btn lama kamu sudah mengatur warna/posisi, 
+       jadi kode di atas hanya untuk menetralkan style bawaan tombol */
+}
