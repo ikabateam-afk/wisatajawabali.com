@@ -561,36 +561,35 @@ html, body {
 
 
 /* =========================================
-   BAGIAN FOOTER BARU (GRID LAYOUT)
+   FOOTER DENGAN PETA
    ========================================= */
 footer {
     background: var(--white);
     padding: 60px 0 20px;
     color: var(--dark);
-    border-top: 5px solid #eee; /* Garis pemisah atas */
+    border-top: 5px solid #eee;
 }
 
-/* Membuat 3 Kolom Rapi */
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
+    /* Membuat 3 kolom: Peta (sedikit lebih lebar), Alamat, Kontak */
+    grid-template-columns: 1.2fr 1fr 1fr; 
+    gap: 30px;
     margin-bottom: 40px;
-    text-align: left; /* Teks rata kiri agar enak dibaca */
+    text-align: left;
 }
 
 .footer-item h3 {
     color: var(--primary);
     margin-bottom: 15px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    font-weight: 800;
 }
 
-.footer-item h4 {
-    margin-bottom: 15px;
-    font-size: 1.1rem;
-    border-bottom: 2px solid var(--secondary);
-    display: inline-block;
-    padding-bottom: 5px;
+/* Style Khusus Pembungkus Peta */
+.map-wrapper iframe {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: #eee; /* Warna loading sementara */
 }
 
 .footer-item p {
@@ -600,19 +599,18 @@ footer {
     line-height: 1.6;
 }
 
-/* Ikon Sosmed */
+/* Sosmed */
 .social-links {
-    margin-top: 15px;
     display: flex;
-    gap: 15px;
+    gap: 10px;
 }
 
 .social-links a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background: var(--dark);
     color: var(--white);
     border-radius: 50%;
@@ -631,24 +629,21 @@ footer {
     color: #888;
     border-top: 1px solid #eee;
     padding-top: 20px;
-    margin-top: 20px;
 }
 
-/* Responsif di HP (Teks jadi tengah) */
+/* RESPONSIF HP */
 @media (max-width: 768px) {
     .footer-grid {
-        text-align: center; /* Di HP rata tengah biar rapi */
-        gap: 30px;
+        grid-template-columns: 1fr; /* Jadi 1 kolom ke bawah */
+        text-align: center; /* Teks rata tengah */
     }
     
-    .footer-item h4 {
-        border-bottom: none; /* Hilangkan garis bawah judul di HP */
-        text-decoration: underline;
-        text-decoration-color: var(--secondary);
+    .social-links {
+        justify-content: center !important; /* Sosmed ke tengah */
     }
 
-    .social-links {
-        justify-content: center; /* Ikon sosmed di tengah */
+    .map-wrapper iframe {
+        height: 250px; /* Peta lebih tinggi dikit di HP biar jelas */
     }
 }
 
