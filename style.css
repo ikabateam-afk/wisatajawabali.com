@@ -995,3 +995,45 @@ footer h3 {
     from {transform: scale(0.9); opacity: 0;}
     to {transform: scale(1); opacity: 1;}
 }
+
+/* =========================================
+   KHUSUS TAMPILAN HP (2 KOLOM)
+   ========================================= */
+@media (max-width: 768px) {
+    .grid-hotel {
+        /* Paksa jadi 2 kolom sama rata */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 10px; /* Jarak antar kartu diperkecil biar muat */
+        padding: 0 5px;
+    }
+
+    .hotel-card img {
+        height: 120px; /* Tinggi gambar dikurangi biar proporsional */
+    }
+
+    .hotel-card .info {
+        padding: 10px; /* Padding dikurangi biar hemat tempat */
+    }
+
+    .hotel-card h3 {
+        font-size: 0.9rem; /* Judul agak dikecilkan */
+        margin-bottom: 2px;
+    }
+
+    .hotel-card .price {
+        font-size: 0.85rem; /* Harga disesuaikan */
+    }
+    
+    .hotel-card p {
+        font-size: 0.7rem; /* Deskripsi dikecilkan */
+        line-height: 1.2;
+    }
+
+    /* Tag Label (Budget, dll) diperkecil juga */
+    .hotel-card .tag {
+        font-size: 0.6rem;
+        padding: 3px 8px;
+        top: 8px;
+        left: 8px;
+    }
+}
