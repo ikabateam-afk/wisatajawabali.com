@@ -37,7 +37,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
 
-    <link rel="stylesheet" href="style.css?v=1.7">
+    <link rel="stylesheet" href="style.css?v=1.8">
 
     <script type="application/ld+json">
     {
@@ -548,9 +548,7 @@
     </script>
 
     <script>
-        // ==========================================
         // DATA MANUAL UNTUK HOTEL
-        // ==========================================
         const hotelData = {
             'pop': ['images/pop-1.webp', 'images/pop-2.webp', 'images/pop-3.webp'],
             'fave': ['images/fave-1.webp', 'images/fave-2.webp', 'images/fave-3.webp'],
@@ -562,11 +560,7 @@
         let currentGallery = [];
         let currentIndex = 0;
 
-        // ==========================================
-        // FUNGSI BUKA GALERI
-        // ==========================================
-
-        // A. UNTUK HOTEL (Klik Hotel)
+        // FUNGSI BUKA GALERI HOTEL
         function openHotel(hotelName) {
             if (hotelData[hotelName]) {
                 currentGallery = hotelData[hotelName];
@@ -577,8 +571,7 @@
             }
         }
 
-        // B. UNTUK TRIP (Klik Trip Wisata)
-        // Contoh: openGallery('jogja', 3) -> mencari jogja-1.webp s/d jogja-3.webp
+        // FUNGSI BUKA GALERI TRIP (JOGJA, BALI, DST)
         function openGallery(tripName, totalImage) {
             currentGallery = [];
             for (let i = 1; i <= totalImage; i++) {
@@ -588,16 +581,12 @@
             showModal();
         }
 
-        // ==========================================
         // LOGIKA MODAL (POPUP)
-        // ==========================================
-
         function showModal() {
             const modal = document.getElementById('hotelModal');
             if (modal) {
                 modal.style.display = 'flex';
-                // Matikan scroll body agar user fokus ke gambar
-                document.body.style.overflow = 'hidden'; 
+                document.body.style.overflow = 'hidden'; // Matikan scroll body
                 updateImage();
             }
         }
@@ -606,14 +595,12 @@
             const modal = document.getElementById('hotelModal');
             if (modal) {
                 modal.style.display = 'none';
-                // Hidupkan scroll body lagi
-                document.body.style.overflow = 'auto'; 
+                document.body.style.overflow = 'auto'; // Hidupkan scroll body
             }
         }
 
         function changeSlide(direction) {
             currentIndex += direction;
-            // Logic Loop (Balik ke awal jika habis)
             if (currentIndex >= currentGallery.length) {
                 currentIndex = 0;
             } else if (currentIndex < 0) {
@@ -626,20 +613,17 @@
             const imgElement = document.getElementById('modalImage');
             const counterElement = document.getElementById('imageCounter');
             
-            // Efek transisi halus
             imgElement.style.opacity = 0;
             setTimeout(() => {
                 imgElement.src = currentGallery[currentIndex];
                 imgElement.style.opacity = 1;
             }, 100);
 
-            // Update Angka Indikator
             if (counterElement) {
                 counterElement.innerText = `Foto ${currentIndex + 1} dari ${currentGallery.length}`;
             }
         }
 
-        // Tutup jika klik di luar gambar (area gelap)
         window.onclick = function(event) {
             const modal = document.getElementById('hotelModal');
             if (event.target == modal) {
@@ -666,12 +650,13 @@
     </div>
 
     <script defer src="https://www.googletagmanager.com/gtag/js?id=G-2VEYN1YQPN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-2VEYN1YQPN');
+    </script>
 
-  gtag('config', 'G-2VEYN1YQPN');
-</script>
 </body>
 </html>
