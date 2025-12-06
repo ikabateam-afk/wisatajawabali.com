@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <url>
+    <loc>https://wisatajawabali.com/</loc>
+    <lastmod>2024-12-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/jogja-1.webp</image:loc>
+      <image:title>Paket Wisata Jogja Istimewa - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/bali-1.webp</image:loc>
+      <image:title>Paket Tour Bali Honeymoon - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/batu-1.webp</image:loc>
+      <image:title>Wisata Batu Malang Jatim Park - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/bromo-1.webp</image:loc>
+      <image:title>Open Trip Bromo Sunrise Jeep - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/bandung-1.webp</image:loc>
+      <image:title>City Tour Bandung Lembang - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://wisatajawabali.com/images/banyuwangi-1.webp</image:loc>
+      <image:title>Trip Kawah Ijen Banyuwangi - PT Inovasi Karya Bahagia</image:title>
+    </image:image>
+  </url>
+
+</urlset>
