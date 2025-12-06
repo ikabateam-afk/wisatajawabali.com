@@ -241,7 +241,7 @@ html, body {
 .products { padding: 60px 0; }
 
 /* Grid Dasar (Desktop) */
-.product-grid, .hotel-grid {
+.product-grid, .grid-hotel {
     display: grid;
     /* Desktop default: menyesuaikan konten */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -250,7 +250,7 @@ html, body {
 
 /* Khusus Hotel Desktop 4 Kolom */
 @media (min-width: 768px) {
-    .hotel-grid {
+    .grid-hotel {
         grid-template-columns: repeat(4, 1fr);
     }
 }
@@ -510,8 +510,8 @@ footer {
        FIX UTAMA: TRIP TERLARIS & HOTEL JADI 2 KOLOM
        ----------------------------------------------- */
     
-    /* Paksa Grid Trip (.product-grid) & Hotel (.hotel-grid) jadi 2 Kolom */
-    .product-grid, .hotel-grid {
+    /* Paksa Grid Trip (.product-grid) & Hotel (.grid-hotel) jadi 2 Kolom */
+    .product-grid, .grid-hotel {
         grid-template-columns: repeat(2, 1fr) !important; /* KUNCI 2 KOLOM */
         gap: 10px;
         padding: 0 5px;
