@@ -254,8 +254,8 @@ html, body {
 /* --- TOMBOL CTA HERO --- */
 .btn-cta {
     display: inline-block;
-    background: var(--primary); /* Warna Merah/Oranye */
-    color: var(--white);
+    background-color: #c62828 !important; /* Merah Marun Gelap (Bukan Merah Terang) */
+    color: #ffffff !important;
     padding: 12px 35px;
     margin-top: 20px;
     text-decoration: none;
@@ -267,7 +267,7 @@ html, body {
 }
 
 .btn-cta:hover {
-    background: #ff4757;
+    background-color: #b71c1c !important;
     transform: translateY(-3px);
     color: var(--white);
 }
@@ -348,12 +348,12 @@ html, body {
 }
 
 .tag {
-    background: #e1f7f5;
-    color: var(--secondary);
+    background-color: #d84315 !important; /* Orange Kemerahan Gelap (Burnt Orange) */
+    color: #ffffff !important;
     padding: 5px 12px;
     font-size: 0.75rem;
     border-radius: 5px;
-    font-weight: 700;
+    font-weight: 600;
     align-self: flex-start; /* Tag di kiri atas */
     margin-bottom: 10px;
 }
@@ -823,8 +823,8 @@ footer {
 .footer-wa-button {
     display: inline-flex;
     align-items: center;
-    background-color: #25D366; /* Hijau WA Official */
-    color: #ffffff !important; /* Wajib putih */
+    background-color: #004d40 !important; /* Hijau Teal Sangat Gelap */
+    color: #ffffff !important;
     padding: 10px 25px;
     border-radius: 50px; /* Membuat bentuk kapsul */
     text-decoration: none;
@@ -900,3 +900,21 @@ button.next-btn {
     /* Biasanya class .prev-btn lama kamu sudah mengatur warna/posisi, 
        jadi kode di atas hanya untuk menetralkan style bawaan tombol */
 }
+
+/* =========================================
+   PERBAIKAN KONTRAS FINAL (ACCESSIBILITY 100)
+   ========================================= */
+
+/* 1. Navbar: Tulisan "Tour Organizer" */
+/* Masalah: Abu-abu sebelumnya kurang gelap */
+.navbar span {
+    color: #222222 !important; /* Hampir hitam pekat */
+    font-weight: 600; /* Menebalkan font membantu rasio kontras */
+}
+/* 2. Judul di Footer (Lokasi Kami, Hubungi Kami) */
+/* Masalah: Warna merah/pink sebelumnya kurang kontras dengan background footer */
+footer h3 {
+    color: #880e4f !important; /* Ungu/Merah Gelap (Dark Magenta) - Sangat Aman */
+    /* Atau ganti #000000 (Hitam) kalau mau paling aman */
+}
+
