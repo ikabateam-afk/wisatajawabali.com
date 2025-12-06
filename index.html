@@ -502,178 +502,144 @@
     </div>
 </footer>
     
-        <script>
+       <script>
         const menuToggle = document.querySelector('#mobile-menu');
         const navLinks = document.querySelector('.nav-links');
 
-        menuToggle.addEventListener('click', function() {
-            menuToggle.classList.toggle('is-active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Agar menu tertutup otomatis saat link diklik
-        const navItems = document.querySelectorAll('.nav-links li a');
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                menuToggle.classList.remove('is-active');
-                navLinks.classList.remove('active');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('is-active');
+                navLinks.classList.toggle('active');
             });
-        });
+
+            // Agar menu tertutup otomatis saat link diklik
+            const navItems = document.querySelectorAll('.nav-links li a');
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuToggle.classList.remove('is-active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        }
     </script>
 
-    <div id="galleryModal" class="gallery-modal">
-    <span class="close-btn" onclick="closeGallery()">&times;</span>
-    
-    <div class="gallery-content">
-        <img id="galleryImage" src="" alt="Gallery Preview">
-        
-        <button class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
-        <button class="next-btn" onclick="changeImage(1)">&#10095;</a>
-        
-        <div class="gallery-caption">
-            <span id="currentImgNum">1</span> / <span id="totalImgNum">3</span>
-        </div>
-    </div>
-</div>
-
-<script>
-    let currentDest = ''; // Menyimpan nama destinasi (misal: batu)
-    let currentIndex = 1; // Foto ke berapa sekarang
-    let totalImages = 0;  // Total foto yang ada
-
-    // Fungsi Buka Galeri
-    function openGallery(destName, total) {
-        currentDest = destName;
-        totalImages = total;
-        currentIndex = 1; // Reset ke foto pertama
-        
-        // Set gambar pertama
-        document.getElementById('galleryImage').src = `images/${currentDest}-1.webp`;
-        document.getElementById('totalImgNum').innerText = totalImages;
-        updateCounter();
-        
-        // Tampilkan Modal
-        document.getElementById('galleryModal').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Matikan scroll website utama
-    }
-
-    // Fungsi Tutup Galeri
-    function closeGallery() {
-        document.getElementById('galleryModal').style.display = 'none';
-        document.body.style.overflow = 'auto'; // Hidupkan scroll lagi
-    }
-
-    // Fungsi Ganti Gambar (Next/Prev)
-    function changeImage(direction) {
-        currentIndex += direction;
-
-        // Logika Loop (Kalau habis, balik ke awal)
-        if (currentIndex > totalImages) {
-            currentIndex = 1;
-        } else if (currentIndex < 1) {
-            currentIndex = totalImages;
-        }
-
-        // Ganti Sumber Gambar
-        document.getElementById('galleryImage').src = `images/${currentDest}-${currentIndex}.webp`;
-        updateCounter();
-    }
-
-    function updateCounter() {
-        document.getElementById('currentImgNum').innerText = currentIndex;
-    }
-
     <script>
-    // DATA GAMBAR HOTEL
-    // Pastikan kamu punya file gambar dengan nama ini di folder images!
-    const hotelData = {
-        'pop': [
-            'images/pop-1.webp', // Gambar Utama
-            'images/pop-2.webp', // Interior 1
-            'images/pop-3.webp'  // Kamar Mandi / Lobby
-        ],
-        'fave': [
-            'images/fave-1.webp',
-            'images/fave-2.webp',
-            'images/fave-3.webp'
-        ],
-        'neo': [
-            'images/neo-1.webp',
-            'images/neo-2.webp',
-            'images/neo-3.webp'
-        ],
-        'harris': [
-            'images/harris-1.webp',
-            'images/harris-2.webp',
-            'images/harris-3.webp'
-        ]
-    };
+        // ==========================================
+        // DATA MANUAL UNTUK HOTEL
+        // ==========================================
+        const hotelData = {
+            'pop': ['images/pop-1.webp', 'images/pop-2.webp', 'images/pop-3.webp'],
+            'fave': ['images/fave-1.webp', 'images/fave-2.webp', 'images/fave-3.webp'],
+            'neo': ['images/neo-1.webp', 'images/neo-2.webp', 'images/neo-3.webp'],
+            'harris': ['images/harris-1.webp', 'images/harris-2.webp', 'images/harris-3.webp']
+        };
 
-    let currentHotel = [];
-    let currentIndex = 0;
+        // VARIABEL GLOBAL
+        let currentGallery = [];
+        let currentIndex = 0;
 
-    // Fungsi Buka Modal
-    function openHotel(hotelName) {
-        currentHotel = hotelData[hotelName]; // Ambil daftar gambar sesuai hotel yg diklik
-        currentIndex = 0; // Mulai dari gambar pertama
-        
-        // Tampilkan Modal
-        document.getElementById('hotelModal').style.display = 'flex';
-        updateImage();
-    }
+        // ==========================================
+        // FUNGSI BUKA GALERI
+        // ==========================================
 
-    // Fungsi Tutup Modal
-    function closeModal() {
-        document.getElementById('hotelModal').style.display = 'none';
-    }
+        // A. UNTUK HOTEL (Klik Hotel)
+        function openHotel(hotelName) {
+            if (hotelData[hotelName]) {
+                currentGallery = hotelData[hotelName];
+                currentIndex = 0;
+                showModal();
+            } else {
+                console.log("Data hotel tidak ditemukan: " + hotelName);
+            }
+        }
 
-    // Fungsi Ganti Gambar (Next/Prev)
-    function changeSlide(direction) {
-        currentIndex += direction;
-        
-        // Logic Loop (Kalau habis balik ke awal)
-        if (currentIndex >= currentHotel.length) {
+        // B. UNTUK TRIP (Klik Trip Wisata)
+        // Contoh: openGallery('jogja', 3) -> mencari jogja-1.webp s/d jogja-3.webp
+        function openGallery(tripName, totalImage) {
+            currentGallery = [];
+            for (let i = 1; i <= totalImage; i++) {
+                currentGallery.push(`images/${tripName}-${i}.webp`);
+            }
             currentIndex = 0;
-        } else if (currentIndex < 0) {
-            currentIndex = currentHotel.length - 1;
+            showModal();
         }
-        
-        updateImage();
-    }
 
-    // Update Tampilan Gambar
-    function updateImage() {
-        const imgElement = document.getElementById('modalImage');
-        const counterElement = document.getElementById('imageCounter');
-        
-        imgElement.src = currentHotel[currentIndex];
-        counterElement.innerText = `Foto ${currentIndex + 1} dari ${currentHotel.length}`;
-    }
+        // ==========================================
+        // LOGIKA MODAL (POPUP)
+        // ==========================================
 
-    // Tutup jika klik di luar gambar
-    window.onclick = function(event) {
-        const modal = document.getElementById('hotelModal');
-        if (event.target == modal) {
-            closeModal();
+        function showModal() {
+            const modal = document.getElementById('hotelModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                // Matikan scroll body agar user fokus ke gambar
+                document.body.style.overflow = 'hidden'; 
+                updateImage();
+            }
         }
-    }
-</script>
+
+        function closeModal() {
+            const modal = document.getElementById('hotelModal');
+            if (modal) {
+                modal.style.display = 'none';
+                // Hidupkan scroll body lagi
+                document.body.style.overflow = 'auto'; 
+            }
+        }
+
+        function changeSlide(direction) {
+            currentIndex += direction;
+            // Logic Loop (Balik ke awal jika habis)
+            if (currentIndex >= currentGallery.length) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = currentGallery.length - 1;
+            }
+            updateImage();
+        }
+
+        function updateImage() {
+            const imgElement = document.getElementById('modalImage');
+            const counterElement = document.getElementById('imageCounter');
+            
+            // Efek transisi halus
+            imgElement.style.opacity = 0;
+            setTimeout(() => {
+                imgElement.src = currentGallery[currentIndex];
+                imgElement.style.opacity = 1;
+            }, 100);
+
+            // Update Angka Indikator
+            if (counterElement) {
+                counterElement.innerText = `Foto ${currentIndex + 1} dari ${currentGallery.length}`;
+            }
+        }
+
+        // Tutup jika klik di luar gambar (area gelap)
+        window.onclick = function(event) {
+            const modal = document.getElementById('hotelModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
     
     <a href="https://wa.me/628170507531?text=Halo%20Admin,%20saya%20butuh%20bantuan..." class="floating-wa-button" target="_blank">
-            <i class="fab fa-whatsapp"></i> Chat Admin
+        <i class="fab fa-whatsapp"></i> Chat Admin
     </a>
 
-            <div id="hotelModal" class="modal">
-    <span class="close-modal" onclick="closeModal()">&times;</span>
-    
-    <div class="modal-content">
-        <img id="modalImage" src="" alt="Galeri Hotel">
+    <div id="hotelModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
         
-        <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
-        <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
-        
-        <div id="imageCounter" style="color: white; margin-top: 10px; font-weight: bold;"></div>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Galeri">
+            
+            <button class="nav-btn prev" onclick="changeSlide(-1)">❮</button>
+            <button class="nav-btn next" onclick="changeSlide(1)">❯</button>
+            
+            <div id="imageCounter" style="color: white; margin-top: 10px; font-weight: bold; font-family: sans-serif;"></div>
+        </div>
     </div>
-</div>
+
 </body>
 </html>
