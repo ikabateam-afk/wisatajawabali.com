@@ -378,8 +378,8 @@ html, body {
 /* Margin Top Auto: Kunci agar Harga & Tombol selalu di dasar kartu */
 .price {
     font-size: 1.2rem;
-    font-weight: 800;
-    color: var(--primary);
+    font-weight: 700;
+    color: #1a6b1a;
     margin-top: auto; 
     margin-bottom: 15px;
 }
@@ -626,7 +626,7 @@ footer {
 .copyright {
     text-align: center;
     font-size: 0.85rem;
-    color: #888;
+    color: #333333;
     border-top: 1px solid #eee;
     padding-top: 20px;
 }
@@ -851,7 +851,7 @@ footer {
     position: fixed;
     bottom: 30px;
     right: 30px;
-    background-color: #25D366;
+    background-color: #075E54 !important;
     color: #ffffff !important;
     padding: 12px 25px;
     border-radius: 50px;
@@ -868,7 +868,7 @@ footer {
 }
 
 .floating-wa-button:hover {
-    background-color: #128C7E;
+    background-color: #128C7E !important;
     transform: scale(1.05); /* Membesar sedikit saat di-hover */
 }
 
