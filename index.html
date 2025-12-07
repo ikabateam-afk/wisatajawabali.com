@@ -32,10 +32,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     </noscript>
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </noscript>
+   <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</noscript>
 
     <link rel="preload" href="style.css?v=1.8" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="style.css?v=2.0"></noscript>
@@ -650,14 +650,23 @@
         </div>
     </div>
 
-    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-2VEYN1YQPN"></script>
     <script>
+  // Fungsi untuk memuat GTAG setelah website santai
+  function loadGTAG() {
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-2VEYN1YQPN";
+      script.async = true;
+      document.body.appendChild(script);
+
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-2VEYN1YQPN');
-    </script>
+  }
+
+  // Jalankan fungsi di atas setelah 4000ms (4 detik)
+  setTimeout(loadGTAG, 4000);
+</script>
 
 </body>
 </html>
